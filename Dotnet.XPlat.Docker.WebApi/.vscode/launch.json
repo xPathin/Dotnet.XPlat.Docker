@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "prepare_debug",
+            "program": "/app/bin/Debug/net5.0/Dotnet.XPlat.Docker.WebApi.App.dll",
+            "args": [],
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceFolder}",
+                "pipeArgs": [
+                    "exec -i docker-webapi"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        },
+    ]
+}

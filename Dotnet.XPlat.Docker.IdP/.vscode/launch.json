@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "prepare_debug",
+            "program": "/app/bin/Debug/net5.0/Dotnet.XPlat.Docker.IdP.App.dll",
+            "args": [],
+            "cwd": "/app",
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceFolder}",
+                "pipeArgs": [
+                    "exec -i docker-idp"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        },
+    ]
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.XPlat.Docker.WebApi.App", "Dotnet.XPlat.Docker.WebApi.App\Dotnet.XPlat.Docker.WebApi.App.csproj", "{0650DBCE-9731-44A9-8F7D-F832F560C3E8}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "Dotnet.XPlat.Docker.WebApi", "Dotnet.XPlat.Docker.WebApi.dcproj", "{DDA129E0-D45F-472D-807D-F000E8825CB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0650DBCE-9731-44A9-8F7D-F832F560C3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0650DBCE-9731-44A9-8F7D-F832F560C3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0650DBCE-9731-44A9-8F7D-F832F560C3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0650DBCE-9731-44A9-8F7D-F832F560C3E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA129E0-D45F-472D-807D-F000E8825CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA129E0-D45F-472D-807D-F000E8825CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA129E0-D45F-472D-807D-F000E8825CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA129E0-D45F-472D-807D-F000E8825CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48FA0626-8F61-427F-B4F7-0FF51203E8A2}
+	EndGlobalSection
+EndGlobal

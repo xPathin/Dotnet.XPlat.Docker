@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App/Dotnet.XPlat.Docker.WebApi.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App/Dotnet.XPlat.Docker.WebApi.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App/Dotnet.XPlat.Docker.WebApi.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "docker-compose_down",
+            "type": "docker-compose",
+            "dockerCompose": {
+              "down": {"customOptions": ""}
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "docker-compose_up",
+            "type": "docker-compose",
+            "dockerCompose": {
+              "up": {"build": true, "customOptions": "-d"},
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "prepare_debug",
+            "dependsOrder": "sequence",
+            "dependsOn": ["build", "docker-compose_up"]
+        }
+    ]
+}

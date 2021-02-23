@@ -1,0 +1,32 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  dotnet-xplat_docker-webapi-app:
+    image: dotnet-xplat/docker-webapi:latest
+    container_name: docker-webapi
+    hostname: docker-webapi
+    build:
+      context: .
+      dockerfile: Dotnet.XPlat.Docker.WebApi.App/Dockerfile
+    environment:
+      - ConnectionStrings__LocalDbConnection=Server=db;Port=3306;Database=${DB_DATABASE:-app_db};Uid=${DB_USER:-app_user};password=${DB_PASSWORD:-3eoRU8WRq0KuD5rjlsqL};
+    ports:
+      - 443
+    links:
+      - "dotnet-xplat_docker-webapi-db:db"
+  dotnet-xplat_docker-webapi-db:
+    image: mariadb:10.5
+    stop_grace_period: 45s
+    environment:
+        - TZ=${TZ:-UTC}
+        - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-piCeWisWjgRf4sPtd2Fu}
+        - MYSQL_DATABASE=${DB_DATABASE:-app_db}
+        - MYSQL_USER=${DB_USER:-app_user}
+        - MYSQL_PASSWORD=${DB_PASSWORD:-3eoRU8WRq0KuD5rjlsqL}
+        - MYSQL_INITDB_SKIP_TZINFO=1
+    restart: always
+networks:
+  default:
+    name: dotnet-xplat

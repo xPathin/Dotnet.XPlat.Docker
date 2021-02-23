@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  dotnet-xplat_docker-idp-app:
+    image: dotnet-xplat/docker-idp:dev
+    build:
+      context: .
+      dockerfile: Dotnet.XPlat.Docker.IdP.App/Dockerfile.Development
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+    - type: bind
+      source: ./Dotnet.XPlat.Docker.IdP.App
+      target: /app
+    - ${HOME}/.nuget:/home/${USER}/.nuget:ro # for linux
+    - ${USERPROFILE}/.nuget:/root/.nuget:rw # for windows
