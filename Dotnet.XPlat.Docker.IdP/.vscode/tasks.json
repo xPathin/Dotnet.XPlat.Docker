@@ -42,7 +42,11 @@
             "label": "docker-compose_down",
             "type": "docker-compose",
             "dockerCompose": {
-              "down": {"customOptions": ""}
+              "down": {"customOptions": ""},
+              "files": [
+                "${workspaceFolder}/docker-compose.yml",
+                "${workspaceFolder}/docker-compose.override.yml"
+              ]
             },
             "problemMatcher": []
         },
@@ -51,6 +55,10 @@
             "type": "docker-compose",
             "dockerCompose": {
               "up": {"build": true, "customOptions": "-d"},
+              "files": [
+                "${workspaceFolder}/docker-compose.yml",
+                "${workspaceFolder}/docker-compose.override.yml"
+              ]
             },
             "problemMatcher": []
         },
