@@ -4,14 +4,10 @@ services:
   dotnet-xplat_docker-idp-app:
     image: dotnet-xplat/docker-idp:dev
     build:
-      context: .
-      dockerfile: Dotnet.XPlat.Docker.IdP.App/Dockerfile.Development
+      dockerfile: Dotnet.XPlat.Docker.IdP.App/Dockerfile.Debug
+      target: base
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
       - ASPNETCORE_URLS=https://+:443
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
-    volumes:
-    - type: bind
-      source: ./Dotnet.XPlat.Docker.IdP.App
-      target: /app

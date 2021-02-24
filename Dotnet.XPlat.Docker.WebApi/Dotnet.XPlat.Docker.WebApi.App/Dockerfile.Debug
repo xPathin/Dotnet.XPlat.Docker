@@ -1,18 +1,15 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 443
 
-#Copy dev certificates
-COPY ["./Assets/Certificates/Development/appcert-docker-webapp.pfx", "/https/aspnetapp.pfx"]
+COPY ["./Assets/Certificates/Development/appcert-docker-webapi.pfx", "/https/aspnetapp.pfx"]
 COPY ["./Assets/Certificates/Development/cacert.pem", "/usr/local/share/ca-certificates/cacert-app.crt"]
 RUN update-ca-certificates
 
-FROM base AS final
-WORKDIR /app
-
-#Install vsdbg
+FROM base AS debug_vscode
 RUN apt-get update
 RUN apt-get install curl -y unzip
 RUN curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
-
 ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+FROM base AS debug_rider
+ENTRYPOINT ["dotnet", "./bin/Dotnet.XPlat.Docker.WebApi.App.dll"]

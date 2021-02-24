@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  dotnet-xplat_docker-idp-app:
+    build:
+      target: debug_vscode
+    volumes:
+      - type: bind
+        source: ./Dotnet.XPlat.Docker.IdP.App
+        target: /app
+      - type: bind
+        source: ./Dotnet.XPlat.Docker.IdP.App/bin/Debug/net5.0/publish
+        target: /app/bin

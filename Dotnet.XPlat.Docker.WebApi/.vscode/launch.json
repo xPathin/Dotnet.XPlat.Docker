@@ -7,10 +7,10 @@
             "request": "launch",
             "preLaunchTask": "prepare_debug",
             "cwd": "/app",
-            "program": "/app/bin/Debug/publish/Dotnet.XPlat.Docker.WebApi.App.dll",
+            "program": "/app/bin/Dotnet.XPlat.Docker.WebApi.App.dll",
             "args": [],
             "sourceFileMap": {
-                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App"
+                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App",
             },       
             "pipeTransport": {
                 "pipeProgram": "docker",
@@ -21,6 +21,6 @@
                 "debuggerPath": "/vsdbg/vsdbg",
                 "quoteArgs": false
             }
-        },
+        }
     ]
 }
