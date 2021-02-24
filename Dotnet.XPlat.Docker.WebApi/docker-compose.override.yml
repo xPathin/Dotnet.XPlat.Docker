@@ -4,14 +4,10 @@ services:
   dotnet-xplat_docker-webapi-app:
     image: dotnet-xplat/docker-webapi:dev
     build:
-      context: .
-      dockerfile: Dotnet.XPlat.Docker.WebApi.App/Dockerfile.Development
+      dockerfile: Dotnet.XPlat.Docker.WebApi.App/Dockerfile.Debug
+      target: base
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
       - ASPNETCORE_URLS=https://+:443
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
-    volumes:
-    - type: bind
-      source: ./Dotnet.XPlat.Docker.WebApi.App
-      target: /app

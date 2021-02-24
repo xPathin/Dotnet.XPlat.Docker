@@ -7,7 +7,7 @@
             "request": "launch",
             "preLaunchTask": "prepare_debug",
             "cwd": "/app",
-            "program": "/app/bin/Debug/publish/Dotnet.XPlat.Docker.IdP.App.dll",
+            "program": "/app/bin/Dotnet.XPlat.Docker.IdP.App.dll",
             "args": [],
             "sourceFileMap": {
                 "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App",
@@ -21,6 +21,6 @@
                 "debuggerPath": "/vsdbg/vsdbg",
                 "quoteArgs": false
             }
-        },
+        }
     ]
 }

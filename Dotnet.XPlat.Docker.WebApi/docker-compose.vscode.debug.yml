@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  dotnet-xplat_docker-webapi-app:
+    build:
+      target: debug_vscode
+    volumes:
+      - type: bind
+        source: ./Dotnet.XPlat.Docker.WebApi.App
+        target: /app
+      - type: bind
+        source: ./Dotnet.XPlat.Docker.WebApi.App/bin/Debug/net5.0/publish
+        target: /app/bin
