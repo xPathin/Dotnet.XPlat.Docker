@@ -6,11 +6,11 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "prepare_debug",
-            "program": "/app/bin/Debug/net5.0/Dotnet.XPlat.Docker.IdP.App.dll",
-            "args": [],
             "cwd": "/app",
+            "program": "/app/bin/Debug/publish/Dotnet.XPlat.Docker.IdP.App.dll",
+            "args": [],
             "sourceFileMap": {
-                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App"
+                "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App",
             },       
             "pipeTransport": {
                 "pipeProgram": "docker",

@@ -6,7 +6,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "prepare_debug",
-            "program": "/app/bin/Debug/net5.0/Dotnet.XPlat.Docker.WebApi.App.dll",
+            "cwd": "/app",
+            "program": "/app/bin/Debug/publish/Dotnet.XPlat.Docker.WebApi.App.dll",
             "args": [],
             "sourceFileMap": {
                 "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App"

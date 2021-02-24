@@ -6,8 +6,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "prepare_debug",
-            // "cwd": "/app/bin/Debug/net5.0/",
-            "program": "/app/bin/Debug/net5.0/Dotnet.XPlat.Docker.WebApp.App.dll",
+            "cwd": "/app",
+            "program": "/app/bin/Debug/publish/Dotnet.XPlat.Docker.WebApp.App.dll",
             "args": [],
             "sourceFileMap": {
                 "/app": "${workspaceFolder}/Dotnet.XPlat.Docker.WebApp.App",

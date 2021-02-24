@@ -39,7 +39,22 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "docker-compose_down",
+            "label": "prepare_debug_publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Dotnet.XPlat.Docker.WebApi.App/Dotnet.XPlat.Docker.WebApi.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/property:PublishDir=./bin/Debug/publish",
+                "/property:RazorCompileOnBuild=false",
+                "/property:MvcRazorCompileOnPublish=false",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "prepare_debug_docker-compose_down",
             "type": "docker-compose",
             "dockerCompose": {
               "down": {"customOptions": ""},
@@ -51,7 +66,7 @@
             "problemMatcher": []
         },
         {
-            "label": "docker-compose_up",
+            "label": "prepare_debug_docker-compose_up",
             "type": "docker-compose",
             "dockerCompose": {
               "up": {"build": true, "customOptions": "-d"},
@@ -65,7 +80,7 @@
         {
             "label": "prepare_debug",
             "dependsOrder": "sequence",
-            "dependsOn": ["build", "docker-compose_up"]
+            "dependsOn": ["prepare_debug_publish", "prepare_debug_docker-compose_up"]
         }
     ]
 }

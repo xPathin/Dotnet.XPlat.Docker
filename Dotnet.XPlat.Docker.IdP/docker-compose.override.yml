@@ -15,5 +15,3 @@ services:
     - type: bind
       source: ./Dotnet.XPlat.Docker.IdP.App
       target: /app
-    - ${HOME}/.nuget:/home/${USER}/.nuget:ro # for linux
-    - ${USERPROFILE}/.nuget:/root/.nuget:rw # for windows
