@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "Dotnet.XPlat.Docker.IdP"
+		},
+		{
+			"path": "Dotnet.XPlat.Docker.WebApi"
+		},
+		{
+			"path": "Dotnet.XPlat.Docker.WebApp"
+		}
+	],
+	"settings": {}
+}
