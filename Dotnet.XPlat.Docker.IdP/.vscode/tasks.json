@@ -1,50 +1,74 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "prepare_debug_publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App/Dotnet.XPlat.Docker.IdP.App.csproj",
-                "/property:GenerateFullPaths=true",
-                "/property:RazorCompileOnBuild=false",
-                "/property:MvcRazorCompileOnPublish=false",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clean",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "clean",
+        "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App/Dotnet.XPlat.Docker.IdP.App.csproj",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "prepare_debug_publish",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/Dotnet.XPlat.Docker.IdP.App/Dotnet.XPlat.Docker.IdP.App.csproj",
+        "/property:GenerateFullPaths=true",
+        "/property:RazorCompileOnBuild=false",
+        "/property:MvcRazorCompileOnPublish=false",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "prepare_debug_docker-compose_down",
+      "type": "docker-compose",
+      "dockerCompose": {
+        "down": {
+          "customOptions": ""
         },
-        {
-            "label": "prepare_debug_docker-compose_down",
-            "type": "docker-compose",
-            "dockerCompose": {
-              "down": {"customOptions": ""},
-              "files": [
-                "${workspaceFolder}/docker-compose.yml",
-                "${workspaceFolder}/docker-compose.override.yml",
-                "${workspaceFolder}/docker-compose.vscode.debug.yml"
-              ]
-            },
-            "problemMatcher": []
+        "files": [
+          "${workspaceFolder}/docker-compose.yml",
+          "${workspaceFolder}/docker-compose.override.yml",
+          "${workspaceFolder}/docker-compose.vscode.debug.yml"
+        ]
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "prepare_debug_docker-compose_up",
+      "type": "docker-compose",
+      "dockerCompose": {
+        "up": {
+          "build": true,
+          "customOptions": "-d"
         },
-        {
-            "label": "prepare_debug_docker-compose_up",
-            "type": "docker-compose",
-            "dockerCompose": {
-              "up": {"build": true, "customOptions": "-d"},
-              "files": [
-                "${workspaceFolder}/docker-compose.yml",
-                "${workspaceFolder}/docker-compose.override.yml",
-                "${workspaceFolder}/docker-compose.vscode.debug.yml"
-              ]
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "prepare_debug",
-            "dependsOrder": "sequence",
-            "dependsOn": ["prepare_debug_publish", "prepare_debug_docker-compose_up"]
-        }
-    ]
+        "files": [
+          "${workspaceFolder}/docker-compose.yml",
+          "${workspaceFolder}/docker-compose.override.yml",
+          "${workspaceFolder}/docker-compose.vscode.debug.yml"
+        ]
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "prepare_debug",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "prepare_debug_publish",
+        "prepare_debug_docker-compose_up"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
 }
